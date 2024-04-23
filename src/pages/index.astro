@@ -1,20 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { TopNav } from "@/components/TopNav";
 import Card from '../components/Card.astro';
+import { ModeToggle } from '@/components/ModeToggle';
+import { TopNav } from '@/components/TopNav';
 import '../styles/globals.css';
+import type { NavLink } from '../types';
 
-const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "Documentation", href: "/docs" },
+const links: NavLink[] = [
+  { title: 'Community', href: '/community' },
+  { title: 'Opportunities', href: '/opportunities' },
+  { title: 'Projects', href: '/projects' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
+<script is:inline>
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+	const isDark = getThemePreference() === 'dark';
+	document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+	if (typeof localStorage !== 'undefined') {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains('dark');
+			localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+	}
+</script>
+
 <Layout title="Elite CS Society">
-  <main class="container mx-auto p-8">
-  <TopNav links={navLinks} currentPage={currentPath} client:load />
+  <main class="container mx-auto">
+  <TopNav client:load />
   <br>
   <h1 class="text-4xl font-bold mb-4 underline">Welcome to ECSS</h1>
     <p class="mb-8">
@@ -23,19 +45,19 @@ const currentPath = Astro.url.pathname;
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <Card
-        href="/about"
-        title="About"
-        body="Learn more about our company and team."
+        href="/Community"
+        title="Community"
+        body="Learn more about our society and community."
       />
       <Card
-        href="/blog"
-        title="Blog"
-        body="Read our latest blog posts and stay updated."
+        href="/Opportunties"
+        title="Opportunities"
+        body="Find local opportunties in the computer science space."
       />
       <Card
-        href="/contact"
-        title="Contact"
-        body="Get in touch with us for more information."
+        href="/Projects"
+        title="Projects"
+        body="Learn about student projects and maybe join them."
       />
     </div>
   </main>
