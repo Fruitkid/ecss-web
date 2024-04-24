@@ -6,6 +6,7 @@ import { TopNav } from '@/components/TopNav';
 import '../styles/globals.css';
 import type { NavLink } from '../types';
 import BentoGrid from "../components/ui/grid"
+import RevisedGrids from "../components/ui/frontgrids"
 
 const links: NavLink[] = [
   { title: 'Community', href: '/community' },
@@ -40,10 +41,10 @@ const currentPath = Astro.url.pathname;
   <main class="container mx-auto">
   <TopNav client:load />
   <br>
-  <h1 class="text-5xl font-extrabold text-center mb-12">ECSS - Elite CS Society</h1>
+  <!-- <h1 class="text-5xl font-extrabold text-center mb-12">ECSS - Elite CS Society</h1> -->
     <p class="mb-8">
     </p>
   </main>
-  <BentoGrid client:load />
+  <RevisedGrids client:load />
 </Layout>
 
