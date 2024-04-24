@@ -5,6 +5,7 @@ import { ModeToggle } from '@/components/ModeToggle';
 import { TopNav } from '@/components/TopNav';
 import '../styles/globals.css';
 import type { NavLink } from '../types';
+import BentoGrid from "../components/ui/grid"
 
 const links: NavLink[] = [
   { title: 'Community', href: '/community' },
@@ -34,31 +35,15 @@ const currentPath = Astro.url.pathname;
 	}
 </script>
 
+
 <Layout title="Elite CS Society">
   <main class="container mx-auto">
   <TopNav client:load />
   <br>
-  <h1 class="text-4xl font-bold mb-4 underline">Welcome to ECSS</h1>
+  <h1 class="text-5xl font-extrabold text-center mb-12 underline">ECSS - Elite CS Society</h1>
     <p class="mb-8">
-      This is a simple website built with Astro and Tailwind CSS.
     </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <Card
-        href="/Community"
-        title="Community"
-        body="Learn more about our society and community."
-      />
-      <Card
-        href="/Opportunties"
-        title="Opportunities"
-        body="Find local opportunties in the computer science space."
-      />
-      <Card
-        href="/Projects"
-        title="Projects"
-        body="Learn about student projects and maybe join them."
-      />
-    </div>
   </main>
+  <BentoGrid client:load />
 </Layout>
+
