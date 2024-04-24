@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Theme from '../components/Theme.astro';
+import { TopNav } from '@/components/TopNav';
+import { JoinDrawer } from '@/components/JoinDrawer';
+import '../styles/globals.css';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+---
+
+<Theme/>
+
+<Layout title="Join ECSS">
+  <TopNav client:load />
+  <div class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+      <div class="flex items-center justify-center py-12">
+        <div class="mx-auto grid w-[350px] gap-6">
+          <div class="grid gap-2 text-center">
+            <h1 class="text-3xl font-bold">Join Elite CS Society</h1>
+            <p class="text-balance text-muted-foreground">
+              Become a part of our talented community, be exposed to valuable opportunties, and contribute to our shared mission!
+            </p>
+          </div>
+          <JoinDrawer triggerName = "Join ECSS" title = "Join the Society" desc = "Become a member of the society today and reap the benefits" client:load />
+          </div>
+      </div>
+      <div class="flex items-center justify-center py-12 border-l">
+        <div class="mx-auto grid w-[350px] gap-6">
+          <div class="grid gap-2 text-center">
+            <h1 class="text-3xl font-bold">Join the Committee</h1>
+            <p class="text-balance text-muted-foreground">
+                Help out with infrastructure, events, planning, outreach, and content to constantly improve the society!
+            </p>
+          </div>
+            <JoinDrawer triggerName = "Join the Committe" title = "Join the Committee" desc = "Help discover, organize and lead events workshops and other facilities of the society." client:load />
+        </div>
+      </div>
+    </div>
+</Layout>
