@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Theme from '../components/Theme.astro';
+import { TopNav } from '@/components/TopNav';
+import { Search } from '@/components/Search';
+import '../styles/globals.css';
+
+---
+<Theme/>
+<Layout title="Search for opportunities">
+    <TopNav client:load />
+    <Search client:load />
+</Layout>
