@@ -31,15 +31,13 @@ export default function RevisedGrids() {
     // Create a function to render the grid items
     const renderGridItems = () => (
         [...Array(10)].map((_, index) => (
-            <div key={index} className="min-w-[200px] min-h-[200px] rounded-lg bg-gray-100 dark:bg-gray-800 transition-all duration-500 ease-in-out hover:scale-[1.01] hover:shadow-lg hover:bg-gray-900/90 flex-none border border-gradient-to-r from-indigo-500 to-purple-500 p-[1px]">
+            <div key={index} className="min-w-[200px] min-h-[200px] rounded-lg bg-gray-100 dark:bg-gray-800 transition-all 
+            duration-500 ease-in-out hover:scale-[1.01] hover:shadow-lg hover:bg-gray-900/90 flex-none border border-gradient-to-r from-indigo-500 to-purple-500 p-[1px]">
                 {/* Content of the grid item */}
                 <h2 className="text-xl font-bold mb-2">Item {index + 1}</h2>
             </div>
         ))
     );
-
-
-        
     return (
         <div className="container mx-auto sm:px-6 lg:px-0">
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-2 px-4 py-4 md:px-0 md:py-2">
@@ -75,7 +73,7 @@ export default function RevisedGrids() {
                     </div>
                 </div>
             </div>
-            <div ref={scrollRef} className="flex overflow-x-auto py-4 space-x-4 px-4 md:px-0">
+            <div ref={scrollRef} className="flex overflow-x-hidden py-4 space-x-4 px-4 md:px-0">
                 {/* Original content */}
                 <div ref={contentRef} className="flex space-x-4">
                     {renderGridItems()}
@@ -84,7 +82,7 @@ export default function RevisedGrids() {
                 <div className="flex space-x-4">
                     {renderGridItems()}
                 </div>
-            </div>
+                </div>
         </div>
     )
 }
