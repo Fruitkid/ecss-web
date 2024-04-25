@@ -4,24 +4,11 @@ import Theme from '../components/Theme.astro';
 import { TopNav } from '@/components/TopNav';
 import { JoinDrawer } from '@/components/JoinDrawer';
 import '../styles/globals.css';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 ---
 
 <Theme/>
 
-<Layout title="Join ECSS">
+<Layout desc="Join ECSS">
   <TopNav client:load />
   <div class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
       <div class="flex items-center justify-center py-12">

@@ -64,7 +64,7 @@ const tags = {
 export function Search() {
   return (
     <div className="px-4 py-6 space-y-6">
-      <div className="sticky top-0 z-10 py-2 outline rounded px-2 outline-0 outline-slate-800 bg-gradient-to-b from-black to-transparent backdrop-blur-[2px]">
+      <div className="sticky top-0 z-10 py-2 outline rounded px-2 outline-0 outline-slate-800 bg-gradient-to-b dark:from-black light:from-white to-transparent backdrop-blur-[8px]">
         <div className="flex items-center gap-4">
           <div className="flex flex-col gap-1 flex-1">
             <Input
@@ -76,7 +76,7 @@ export function Search() {
           <div className="flex items-center gap-2 flex-shrink-0 overflow-x-auto">
             <TooltipProvider>
               {Object.keys(tags).map((key, index) => (
-                <Tooltip>
+                <Tooltip key={index}>
                   <TooltipTrigger>
                     <Button
                       key={index}
